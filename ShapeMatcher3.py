@@ -12,7 +12,7 @@ x = 50
 y = 50
 width = 150
 height = 150
-vel = 25
+vel_speed = 20
 
 while running:
     for event in pygame.event.get():
@@ -24,6 +24,11 @@ while running:
 
     keys = pygame.key.get_pressed()
 
+    if keys[pygame.K_LSHIFT] and vel == vel_speed:
+        vel = 1
+    else:
+        vel = vel_speed
+    
     if keys[pygame.K_a] and x > vel - vel:
         x -= vel
     if keys[pygame.K_d] and x < screenWidth - width:
